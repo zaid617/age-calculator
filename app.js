@@ -1,35 +1,73 @@
 function calculate() {
-    // date of birth value from input box 
-    let dateOfBirth = document.getElementById('dob').value;
-    // current date get from pc
-    let today = new Date();
-    // date of birth value from input box and put in date function
-    let dob = new Date(dateOfBirth);
-    // apply getTime() function on today variable
-    let todayTime = today.getTime();
-    // apply getFullYear() function on today variable
-    let todayYear = today.getFullYear();
-    // apply getFullYear() function on dob variable
-    let dobYear = dob.getFullYear();
-    // apply getDay() function on dob variable and get day from dob
-    let dobday = dob.getDay();
-    // apply getMonth() function on dob variable and get Month from dob
-    let dobmonth = dob.getMonth();
-    // apply getFullYear() function on dob variable and add 1 to get next year
-    let nextyear = today.getFullYear()+1;
-    // calculate the next birthday
-    let nextBirthDay = new Date (nextyear, dobmonth, dobday)
-    // apply getTime() function on nextBirthday variable and get miliseconds 
-    let nextBirthDayTime = nextBirthDay.getTime()
-    // calculate age 
-    let age = todayYear - dobYear;
-    // calculate how many days are left in next birthday
-    let daysLeft = Math.floor((nextBirthDayTime-todayTime)/(1000*60*60*24))
 
-    console.log("Next Birthday: ", nextBirthDay);
-    console.log("Days left for next birthday:" ,daysLeft);
-    console.log("Birth Year:", dobYear);
-    console.log("Current Year:", todayYear);
-    console.log("Age:", age);
+    let dob = document.getElementById('dob').value;
+    let today = new Date();
+    let todayYear = today.getFullYear();
+    let todayDate = today.getDate();
+    let todayMonth = today.getMonth();
+    let todayTime = today.getTime();
+    let dateOfBirth = new Date(dob);
+    let dateOfDOB = dateOfBirth.getDate();
+    let monthOfDOB = dateOfBirth.getMonth();
+    let yearOfDOB = dateOfBirth.getFullYear();
+    let age = todayYear - yearOfDOB;
+    let days = document.getElementById('days');
+    let ages = document.getElementById('age');
+    let dob2 = document.getElementById('dob2');
+    let nextBirthyear;
+
+    if (todayMonth > monthOfDOB) {
+        nextBirthyear = todayYear + 1
+        let nextBirthyearTime = new Date(nextBirthyear, monthOfDOB, dateOfDOB).getTime();
+        let daysLeft = Math.floor((nextBirthyearTime - todayTime) / (1000 * 60 * 60 * 24));
+        days.value = daysLeft;
+        ages.value = age;
+        dob2.value = dateOfDOB + "/" + (monthOfDOB+1) + "/" + yearOfDOB;
+        console.log(daysLeft, " days are left");
+    }
+    else if (todayMonth < monthOfDOB) {
+        nextBirthyear = todayYear
+        let nextBirthyearTime = new Date(nextBirthyear, monthOfDOB, dateOfDOB).getTime()
+        let daysLeft = Math.floor((nextBirthyearTime - todayTime) / (1000 * 60 * 60 * 24));
+        days.value = daysLeft;
+        ages.value = age
+        dob2.value = dateOfDOB + "/" + (monthOfDOB+1) + "/" + yearOfDOB;
+        console.log("your birthday passed :", daysLeft + "day ago");
+    }
+    else if (todayMonth == monthOfDOB) {
+
+        if (todayDate > dateOfDOB) {
+            nextBirthyear = todayYear + 1
+            let nextBirthyearTime = new Date(nextBirthyear, monthOfDOB, dateOfDOB).getTime();
+            let daysLeft = Math.floor((nextBirthyearTime - todayTime) / (1000 * 60 * 60 * 24));
+            days.value = daysLeft;
+            ages.value = age
+            dob2.value = dateOfDOB + "/" +  (monthOfDOB+1) + "/" +  yearOfDOB;
+            console.log(daysLeft, " days are left");
+        }
+
+        else if (todayDate < dateOfDOB) {
+            nextBirthyear = todayYear
+            let nextBirthyearTime = new Date(nextBirthyear, monthOfDOB, dateOfDOB).getTime()
+            let daysLeft = Math.floor((todayTime - nextBirthyearTime) / (1000 * 60 * 60 * 24));
+            console.log("your birthday passed :", daysLeft + "day ago");
+            days.value = daysLeft;
+            ages.value = age
+            dob2.value = dateOfDOB + "/" +  (monthOfDOB+1) + "/" +  yearOfDOB;
+        }
+        else if (todayDate === dateOfDOB) {
+            let daysLeft = "Its Your Birthday"
+            days.value = daysLeft;
+            ages.value = age
+            dob2.value = dateOfDOB + "/" +  (monthOfDOB+1) + "/" +  yearOfDOB;
+            console.log(daysLeft);
+        }
+
+    }
+
+    
+
 }
+
+
 

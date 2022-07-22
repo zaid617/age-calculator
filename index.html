@@ -1,31 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Document</title>
 </head>
+
 <body>
-    <div class="login-box">
-        <fieldset>
-            <legend><h2>Age Calculator</h2></legend>
-        
-        <form onsubmit="calculate(); return false">
-          <div class="user-box">
-            <input type="date" value="1990-01-01" name="date" required id='dob'>
-            <label>Date of Birth:</label>
-          </div>
-          <button class="a" type="submit">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            Submit
-          </button>
-        </fieldset>
-      </div>
-      <script src="app.js"></script>
+  <div class="login-box">
+    <fieldset>
+      <legend>
+        <h2>Age Calculator</h2>
+      </legend>
+
+      <form onsubmit="calculate(); return false">
+        <div class="user-box">
+          <input type="date" value="1990-01-01" name="date" required id='dob'>
+          <label class="center">ENTER YOUR DATE OF BIRTH</label>
+        </div>
+        <div class="user-box">
+          <input type="text" readonly id='dob2'>
+          <label>Date of Birth:</label>
+        </div>
+        <div class="user-box">
+          <input type="text" readonly id='age'>
+          <label>Age:</label>
+        </div>
+        <div class="user-box">
+          <input type="text" readonly id='days'>
+          <label>Days left:</label>
+        </div>
+        <button class="a" type="submit">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          Submit
+        </button>
+    </fieldset>
+  </div>
+  <script src="app.js"></script>
 </body>
+
 </html>
