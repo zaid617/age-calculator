@@ -12,12 +12,12 @@
         <fieldset>
             <legend><h2>Age Calculator</h2></legend>
         
-        <form>
+        <form onsubmit="calculate(); return false">
           <div class="user-box">
             <input type="date" value="1990-01-01" name="date" required id='dob'>
             <label>Date of Birth:</label>
           </div>
-          <button class="a" onclick="calculate()">
+          <button class="a" type="submit">
             <span></span>
             <span></span>
             <span></span>
