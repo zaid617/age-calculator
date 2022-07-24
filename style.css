@@ -161,3 +161,10 @@ html {
   .center{
     text-align: center;
   }
+
+  #box1{
+    display: none;
+  }
+  #box2{
+    display: none;
+  }
